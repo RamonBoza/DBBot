@@ -21,7 +21,7 @@ public abstract class AbstractScreen {
 		}
 	}
 
-	protected  void executeAction(String action) {
+	protected void executeAction(String action) {
 		LOGGER.debug("Executing the action");
 		driver.click(action);
 		try {

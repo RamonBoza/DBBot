@@ -16,7 +16,7 @@ public class FinishSummonedCharacterScreen extends AbstractScreen implements Scr
             .getLogger(FinishSummonedCharacterScreen.class);
 
 
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.SSR_SUMMONED_CHARACTER_SUCCESS);
     }
 

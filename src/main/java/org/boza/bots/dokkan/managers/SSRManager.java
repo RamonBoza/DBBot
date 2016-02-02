@@ -21,16 +21,24 @@ import java.util.List;
 public class SSRManager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SSRManager.class);
+    private static SSRManager instance = null;
 
     private int ssrCounter = 0;
 
     private List<Screen> screens;
 
-    public SSRManager() {
+    private SSRManager() {
         screens = new ArrayList<Screen>();
         screens.add(new FinishSummonedCharacterScreen());
         screens.add(new GoToMenuScreen());
         screens.add(new CreateTransferCodeScreen());
+    }
+
+    public static SSRManager getInstance () {
+        if(instance == null){
+            instance = new SSRManager();
+        }
+        return instance;
     }
 
 

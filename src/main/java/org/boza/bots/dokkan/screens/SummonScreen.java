@@ -14,7 +14,7 @@ public class SummonScreen extends AbstractScreen implements Screen {
             .getLogger(SummonScreen.class);
 
 
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.SUMMON_BUTTON);
     }
 

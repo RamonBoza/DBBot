@@ -15,12 +15,9 @@ public class CreateTransferCodeScreen extends AbstractScreen implements Screen {
     private static final Logger LOGGER = LoggerFactory
             .getLogger(CreateTransferCodeScreen.class);
 
-
-
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.TRANSFER_CODE_BUTTON);
         executeAction(DokkanResources.TRANSFER_CODE_OK_BUTTON);
-
     }
 
     public boolean isDisplayed() {

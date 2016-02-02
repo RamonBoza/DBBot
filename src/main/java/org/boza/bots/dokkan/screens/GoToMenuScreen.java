@@ -15,7 +15,7 @@ public class GoToMenuScreen extends AbstractScreen implements Screen {
             .getLogger(GoToMenuScreen.class);
 
 
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.MENU_BUTTON_SCREEN);
     }
 

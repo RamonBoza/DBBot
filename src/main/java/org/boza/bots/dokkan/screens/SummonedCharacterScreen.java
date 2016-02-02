@@ -20,8 +20,9 @@ public class SummonedCharacterScreen extends AbstractScreen implements Screen {
         ssrManager = new SSRManager();
     }
 
-    public void executeAction() {
-        executeAction(DokkanResources.SSR_SUMMONED_CHARACTER_SUCCESS);
+    public Screen executeAction() {
+        if(isDisplayed(DokkanResources.SSR_SUMMONED_CHARACTER_SUCCESS))
+            ssrManager.gotNewSSR();
     }
 
     public boolean isDisplayed() {

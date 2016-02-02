@@ -11,7 +11,7 @@ public class ExitEmulatorScreen extends AbstractScreen implements Screen {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExitEmulatorScreen.class);
 
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.EXIT_EMULATOR_SCREEN);
     }
 
