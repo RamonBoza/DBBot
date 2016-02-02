@@ -8,18 +8,17 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by ramon.boza on 1/2/16.
  */
-public class MainScreen extends AbstractScreen implements Screen {
+public class SummonGokuScreen extends AbstractScreen implements Screen {
 
     private static final Logger LOGGER = LoggerFactory
-            .getLogger(MainScreen.class);
+            .getLogger(SummonGokuScreen.class);
 
 
     public void executeAction() {
-        executeAction(DokkanResources.MAIN_SCREEN);
-
+        dragAndDrop(DokkanResources.SUMMON_GOKU_PLANET, DokkanResources.SUMMON_GOKU_GROUND);
     }
 
     public boolean isDisplayed() {
-       return isDisplayed(DokkanResources.MAIN_SCREEN);
+        return isDisplayed(DokkanResources.SUMMON_GOKU_SCREEN);
     }
 }

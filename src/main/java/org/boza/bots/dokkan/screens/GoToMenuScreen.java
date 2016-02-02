@@ -8,18 +8,18 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by ramon.boza on 1/2/16.
  */
-public class MainScreen extends AbstractScreen implements Screen {
+public class GoToMenuScreen extends AbstractScreen implements Screen {
+
 
     private static final Logger LOGGER = LoggerFactory
-            .getLogger(MainScreen.class);
+            .getLogger(GoToMenuScreen.class);
 
 
     public void executeAction() {
-        executeAction(DokkanResources.MAIN_SCREEN);
-
+        executeAction(DokkanResources.MENU_BUTTON_SCREEN);
     }
 
     public boolean isDisplayed() {
-       return isDisplayed(DokkanResources.MAIN_SCREEN);
+        return isDisplayed(DokkanResources.MENU_BUTTON_SCREEN);
     }
 }

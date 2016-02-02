@@ -1,13 +1,11 @@
 package org.boza.bots.dokkan.driver;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
 import java.net.URL;
 import java.util.List;
 
-import org.sikuli.api.DefaultScreenRegion;
-import org.sikuli.api.ImageTarget;
-import org.sikuli.api.Screen;
-import org.sikuli.api.ScreenRegion;
-import org.sikuli.api.Target;
+import org.sikuli.api.*;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
 import org.sikuli.api.robot.desktop.DesktopScreen;
@@ -24,11 +22,13 @@ public class SikuliDriver {
 	private Screen screen;
 	ScreenRegion region;
 	Mouse mouse;
+	Robot mouseRobot;
 
-	public SikuliDriver() {
+	public SikuliDriver() throws AWTException {
 		screen = new DesktopScreen(0);
 		region = new DefaultScreenRegion(screen);
 		mouse = new DesktopMouse();
+		mouseRobot = new Robot();
 	}
 
 	public boolean isElementPresent(String elementIdentification) {
@@ -54,6 +54,17 @@ public class SikuliDriver {
 
 		mouse.click(find.getCenter());
 
+	}
+
+	public void dragAndDrop(String elementIdentificationInitial, String elementIdentificationEnd){
+		ScreenRegion initRegion = region.find(new ImageTarget(
+				getURLFromElement(elementIdentificationInitial)));
+		ScreenRegion endRegion = region.find(new ImageTarget(
+				getURLFromElement(elementIdentificationEnd)));
+		mouseRobot.mouseMove(initRegion.getCenter().getX(), initRegion.getCenter().getY());
+		mouseRobot.mousePress(InputEvent.BUTTON1_MASK);
+		mouseRobot.mouseMove(endRegion.getCenter().getX(), endRegion.getCenter().getY());
+		mouseRobot.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
 	private URL getURLFromElement(String elementIdentification) {
