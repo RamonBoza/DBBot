@@ -25,17 +25,17 @@ public abstract class AbstractScreen {
 		LOGGER.debug("Executing the action");
 		driver.click(action);
 		try {
-			Thread.sleep(17000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			LOGGER.error("Found a problem when sleeping", e);
 		}
 	}
 
 	protected boolean isDisplayed(String icon) {
-		LOGGER.debug("Am I being displayed?");
+		LOGGER.debug("Am I being displayed?"+icon);
 		boolean isDisplayed = driver
 				.isElementPresent(icon);
-		LOGGER.debug("is being displayed " + isDisplayed);
+		LOGGER.debug("is being displayed "+ icon + " " + isDisplayed);
 		return isDisplayed;
 	}
 
@@ -43,7 +43,7 @@ public abstract class AbstractScreen {
 		LOGGER.debug("Executing the action");
 		driver.dragAndDrop(iconFrom, iconTo);
 		try {
-			Thread.sleep(17000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			LOGGER.error("Found a problem when sleeping", e);
 		}

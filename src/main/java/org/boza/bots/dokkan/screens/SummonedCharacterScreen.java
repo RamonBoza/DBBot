@@ -17,12 +17,16 @@ public class SummonedCharacterScreen extends AbstractScreen implements Screen {
             .getLogger(SummonedCharacterScreen.class);
 
     public SummonedCharacterScreen(){
-        ssrManager = new SSRManager();
+        ssrManager = SSRManager.getInstance();
     }
 
     public Screen executeAction() {
-        if(isDisplayed(DokkanResources.SSR_SUMMONED_CHARACTER_SUCCESS))
+        if(isDisplayed(DokkanResources.SSR_SUMMONED_CHARACTER_SUCCESS)) {
             ssrManager.gotNewSSR();
+            return new CreateTransferCodeScreen();
+        }
+        return new SummonScreen(false);
+
     }
 
     public boolean isDisplayed() {

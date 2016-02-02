@@ -1,7 +1,6 @@
 package org.boza.bots.dokkan.managers;
 
 import org.boza.bots.dokkan.screens.CreateTransferCodeScreen;
-import org.boza.bots.dokkan.screens.FinishSummonedCharacterScreen;
 import org.boza.bots.dokkan.screens.GoToMenuScreen;
 import org.boza.bots.dokkan.screens.Screen;
 import org.slf4j.Logger;
@@ -29,7 +28,6 @@ public class SSRManager {
 
     private SSRManager() {
         screens = new ArrayList<Screen>();
-        screens.add(new FinishSummonedCharacterScreen());
         screens.add(new GoToMenuScreen());
         screens.add(new CreateTransferCodeScreen());
     }

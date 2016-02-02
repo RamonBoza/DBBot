@@ -18,7 +18,7 @@ public class SikuliDriver {
 			.getLogger(SikuliDriver.class);
 
 	private static final double TARGET_SCORE = 0.5;
-	private static final String IMAGES = "/images/";
+	private static final String IMAGES = "images/";
 	private Screen screen;
 	ScreenRegion region;
 	Mouse mouse;
@@ -68,7 +68,7 @@ public class SikuliDriver {
 	}
 
 	private URL getURLFromElement(String elementIdentification) {
-		URL resource = getClass().getResource(IMAGES + elementIdentification);
+		URL resource = getClass().getClassLoader().getResource(IMAGES + elementIdentification);
 		return resource;
 	}
 }

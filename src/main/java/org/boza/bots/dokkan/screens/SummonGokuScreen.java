@@ -15,7 +15,9 @@ public class SummonGokuScreen extends AbstractScreen implements Screen {
 
 
     public Screen executeAction() {
+        isDisplayed();
         dragAndDrop(DokkanResources.SUMMON_GOKU_PLANET, DokkanResources.SUMMON_GOKU_GROUND);
+        return new SummonedCharacterScreen();
     }
 
     public boolean isDisplayed() {

@@ -16,8 +16,10 @@ public class CreateTransferCodeScreen extends AbstractScreen implements Screen {
             .getLogger(CreateTransferCodeScreen.class);
 
     public Screen executeAction() {
+        executeAction(DokkanResources.CREATE_TRANSFER_BUTTON);
         executeAction(DokkanResources.TRANSFER_CODE_BUTTON);
         executeAction(DokkanResources.TRANSFER_CODE_OK_BUTTON);
+        return null;
     }
 
     public boolean isDisplayed() {

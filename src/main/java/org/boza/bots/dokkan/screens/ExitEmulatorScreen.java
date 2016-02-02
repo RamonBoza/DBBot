@@ -13,6 +13,7 @@ public class ExitEmulatorScreen extends AbstractScreen implements Screen {
 
     public Screen executeAction() {
         executeAction(DokkanResources.EXIT_EMULATOR_SCREEN);
+        return new EmulatorScreen();
     }
 
     public boolean isDisplayed() {
