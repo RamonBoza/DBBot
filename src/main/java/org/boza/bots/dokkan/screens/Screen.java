@@ -2,7 +2,7 @@ package org.boza.bots.dokkan.screens;
 
 public interface Screen {
 
-	void executeAction();
+	Screen executeAction();
 
 	boolean isDisplayed();
 }

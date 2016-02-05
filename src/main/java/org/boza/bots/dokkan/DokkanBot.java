@@ -10,8 +10,9 @@ import org.boza.bots.dokkan.screens.*;
  */
 public class DokkanBot {
 	CircularList<Screen> screens;
+    private Screen screen;
 
-	public DokkanBot() {
+    public DokkanBot() {
 		screens = new CircularList<Screen>();
 	}
 
@@ -29,18 +30,14 @@ public class DokkanBot {
 	public void locateItself() {
 		boolean found;
 		do {
-			Screen screen = screens.next();
+			screen = screens.next();
 			found = screen.isDisplayed();
 		} while (!found);
 	}
 
 	public void runBot() throws BotException {
-		while (true) {
-			Screen screen = screens.get();
-            if(!screen.isDisplayed())
-                throw new BotException();
-			screen.executeAction();
-			screens.next();
+        while (true) {
+			screen = screen.executeAction();
 		}
 	}
 }

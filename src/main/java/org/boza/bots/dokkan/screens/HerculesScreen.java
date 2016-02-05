@@ -11,8 +11,9 @@ public class HerculesScreen extends AbstractScreen implements Screen {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HerculesScreen.class);
 
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.HERCULES_SCREEN);
+        return new MainScreen();
     }
 
     public boolean isDisplayed() {

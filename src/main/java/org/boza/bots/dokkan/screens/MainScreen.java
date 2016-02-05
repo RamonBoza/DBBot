@@ -14,9 +14,9 @@ public class MainScreen extends AbstractScreen implements Screen {
             .getLogger(MainScreen.class);
 
 
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.MAIN_SCREEN);
-
+        return new TutorialScreen();
     }
 
     public boolean isDisplayed() {

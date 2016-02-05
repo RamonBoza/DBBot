@@ -11,8 +11,9 @@ public class EmulatorScreen extends AbstractScreen implements Screen {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmulatorScreen.class);
 
-    public void executeAction() {
+    public Screen executeAction() {
         executeAction(DokkanResources.EMULATOR_SCREEN);
+        return new HerculesScreen();
     }
 
     public boolean isDisplayed() {

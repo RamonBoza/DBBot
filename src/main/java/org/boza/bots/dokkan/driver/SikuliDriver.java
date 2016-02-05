@@ -5,6 +5,7 @@ import java.awt.event.InputEvent;
 import java.net.URL;
 import java.util.List;
 
+import org.boza.bots.dokkan.exceptions.BotException;
 import org.sikuli.api.*;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
@@ -18,7 +19,7 @@ public class SikuliDriver {
 			.getLogger(SikuliDriver.class);
 
 	private static final double TARGET_SCORE = 0.5;
-	private static final String IMAGES = "/images/";
+	private static final String IMAGES = "images/";
 	private Screen screen;
 	ScreenRegion region;
 	Mouse mouse;
@@ -46,14 +47,21 @@ public class SikuliDriver {
 		return find.size() > 0;
 	}
 
-	public void click(String elementIdentification) {
+	public void click(String elementIdentification) throws BotException {
 		Target target = new ImageTarget(
 				getURLFromElement(elementIdentification));
 		target.setMinScore(TARGET_SCORE);
 		ScreenRegion find = region.find(target);
+		if(find == null)
+			throw new BotException();
+		click(find);
 
-		mouse.click(find.getCenter());
+	}
 
+	private void click(ScreenRegion region){
+		mouseRobot.mouseMove(region.getCenter().getX(), region.getCenter().getY());
+		mouseRobot.mousePress(InputEvent.BUTTON1_MASK);
+		mouseRobot.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
 	public void dragAndDrop(String elementIdentificationInitial, String elementIdentificationEnd){
@@ -68,7 +76,7 @@ public class SikuliDriver {
 	}
 
 	private URL getURLFromElement(String elementIdentification) {
-		URL resource = getClass().getResource(IMAGES + elementIdentification);
+		URL resource = getClass().getClassLoader().getResource(IMAGES + elementIdentification);
 		return resource;
 	}
 }
